@@ -1,9 +1,16 @@
 <script setup lang="ts">
-// 根组件：Task 2 会在此装入 NavBar / 页脚 / 主题逻辑
+import NavBar from './components/NavBar.vue'
+import SiteFooter from './components/SiteFooter.vue'
+import { useTheme } from './composables/useTheme'
+
+// 在根组件激活主题系统，保证整个应用共享同一状态
+useTheme()
 </script>
 
 <template>
-  <main class="flex min-h-screen items-center justify-center">
-    <p class="text-xl">CaCO3 官网搭建中…</p>
-  </main>
+  <div class="min-h-screen bg-white text-slate-700 transition-colors dark:bg-[#0a0f1a] dark:text-slate-300">
+    <NavBar />
+    <RouterView />
+    <SiteFooter />
+  </div>
 </template>
