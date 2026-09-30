@@ -1,5 +1,10 @@
+<script setup lang="ts">
+import FeatureGrid from '../components/FeatureGrid.vue'
+import HeroSection from '../components/HeroSection.vue'
+</script>
+
 <template>
-  <main class="flex min-h-screen items-center justify-center">
-    <p class="text-xl">主页建设中…</p>
-  </main>
+  <HeroSection />
+  <FeatureGrid />
+  <!-- 后续任务追加：画廊（Task 4）、时间线（Task 5） -->
 </template>
