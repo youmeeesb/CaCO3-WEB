@@ -2,11 +2,12 @@
 import FeatureGrid from '../components/FeatureGrid.vue'
 import GallerySection from '../components/GallerySection.vue'
 import HeroSection from '../components/HeroSection.vue'
+import TimelineSection from '../components/TimelineSection.vue'
 </script>
 
 <template>
   <HeroSection />
   <FeatureGrid />
   <GallerySection />
-  <!-- 后续任务追加：时间线（Task 5） -->
+  <TimelineSection />
 </template>
