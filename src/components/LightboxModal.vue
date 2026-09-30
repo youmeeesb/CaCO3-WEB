@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
     >
       <figure class="max-h-full max-w-6xl">
         <img :src="image.src" :alt="image.alt" class="max-h-[85vh] w-auto rounded-xl shadow-2xl" />
-        <figcaption class="mt-3 text-center text-sm text-slate-200">{{ image.alt }}</figcaption>
+        <figcaption class="mt-3 text-center text-sm text-slate-300">点击空白或X关闭</figcaption>
       </figure>
 
       <button

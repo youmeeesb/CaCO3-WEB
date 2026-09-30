@@ -1,12 +1,23 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { gallery, serverInfo } from '../content'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { gallery, heroQuotes, serverInfo } from '../content'
 import { useTheme } from '../composables/useTheme'
 
 const { isDark } = useTheme()
 
 // 满屏大图按主题取深色 / 浅色版本
 const heroImage = computed(() => (isDark.value ? gallery[0].dark : gallery[0].light))
+
+// 语句轮播：每 5 秒淡入淡出切换到下一句
+const quoteIndex = ref(0)
+let timer: ReturnType<typeof setInterval> | undefined
+onMounted(() => {
+  timer = setInterval(() => {
+    quoteIndex.value = (quoteIndex.value + 1) % heroQuotes.length
+  }, 5000)
+})
+onUnmounted(() => clearInterval(timer))
+const currentQuote = computed(() => heroQuotes[quoteIndex.value])
 </script>
 
 <template>
@@ -27,7 +38,25 @@ const heroImage = computed(() => (isDark.value ? gallery[0].dark : gallery[0].li
       <h1 class="text-5xl font-bold tracking-wide drop-shadow-sm sm:text-7xl">
         {{ serverInfo.name }}
       </h1>
-      <p class="mt-4 text-xl sm:text-2xl">{{ serverInfo.slogan }}</p>
+
+      <!-- 语句轮播：固定最小高度，长短句切换时按钮不跳动 -->
+      <div class="mx-auto mt-4 flex min-h-32 max-w-2xl items-center justify-center sm:min-h-24">
+        <Transition name="quote-fade" mode="out-in">
+          <a
+            v-if="currentQuote.url"
+            :key="quoteIndex"
+            :href="currentQuote.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-lg leading-relaxed underline decoration-white/40 underline-offset-4 transition hover:decoration-orange-400 sm:text-2xl"
+          >
+            {{ currentQuote.text }}
+          </a>
+          <p v-else :key="quoteIndex" class="text-lg leading-relaxed sm:text-2xl">
+            {{ currentQuote.text }}
+          </p>
+        </Transition>
+      </div>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
         <RouterLink
@@ -46,3 +75,15 @@ const heroImage = computed(() => (isDark.value ? gallery[0].dark : gallery[0].li
     </div>
   </section>
 </template>
+
+<style scoped>
+/* 轮播淡入淡出：0.5s 淡出旧句、淡入新句 */
+.quote-fade-enter-active,
+.quote-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.quote-fade-enter-from,
+.quote-fade-leave-to {
+  opacity: 0;
+}
+</style>

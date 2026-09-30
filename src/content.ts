@@ -19,6 +19,20 @@ export const serverInfo = {
     '欢迎来到 CaCO3 服务器！超低门槛，纯原版即可直连进服；内置 Terralith 数据包，重塑壮丽山河，为你带来前所未有的丰富地形与绝美群系。',
 }
 
+// 首页 Hero 大标题下方的轮播语句；url 存在则整句可点击（新标签页打开）
+export const heroQuotes: { text: string; url?: string }[] = [
+  {
+    text: '五岳三江，与你相伴——腐竹:棗狐morning fox',
+    url: 'https://space.bilibili.com/1897145549',
+  },
+  {
+    text: '我们的故事还没有到此结束，生命不息，整活不止，我们会继续坚持开放服务器，遇到更多相同爱好的人，给别人传达快乐😊——caco3服务器运营组',
+    url: 'https://space.bilibili.com/3493125735582024?spm_id_from=333.337.0.0',
+  },
+  // 第三句不可点击，直接复用服务器标语，避免两处维护
+  { text: serverInfo.slogan },
+]
+
 // 首页四个特性卡片
 export const features = [
   {

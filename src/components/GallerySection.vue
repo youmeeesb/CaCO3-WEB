@@ -27,7 +27,7 @@ function close() {
   <section class="py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <h2 class="text-center text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
-        服务器风景
+        画廊
       </h2>
       <p class="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">点击图片可放大查看</p>
 
