@@ -48,7 +48,7 @@ const currentQuote = computed(() => heroQuotes[quoteIndex.value])
             :href="currentQuote.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-lg leading-relaxed underline decoration-white/40 underline-offset-4 transition hover:decoration-orange-400 sm:text-2xl"
+            class="text-lg leading-relaxed transition hover:text-orange-600 dark:hover:text-orange-400 sm:text-2xl"
           >
             {{ currentQuote.text }}
           </a>
