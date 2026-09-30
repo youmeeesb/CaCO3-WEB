@@ -1,14 +1,15 @@
 // 全站内容数据：文案改动只需编辑此文件，组件不硬编码任何文案
-import img01 from './assets/images/01.png'
-import img01Light from './assets/images/01_light.png'
-import img02 from './assets/images/02.png'
-import img02Light from './assets/images/02_light.png'
-import img03 from './assets/images/03.png'
-import img03Light from './assets/images/03_light.png'
-import img04 from './assets/images/04.png'
-import img04Light from './assets/images/04_light.png'
-import img05 from './assets/images/05.png'
-import img05Light from './assets/images/05_light.png'
+// 截图使用 WebP（约 96% 体积缩减）；原始 PNG 保留在根目录 images/ 作为母版
+import img01 from './assets/images/01.webp'
+import img01Light from './assets/images/01_light.webp'
+import img02 from './assets/images/02.webp'
+import img02Light from './assets/images/02_light.webp'
+import img03 from './assets/images/03.webp'
+import img03Light from './assets/images/03_light.webp'
+import img04 from './assets/images/04.webp'
+import img04Light from './assets/images/04_light.webp'
+import img05 from './assets/images/05.webp'
+import img05Light from './assets/images/05_light.webp'
 
 // 服务器基础信息
 export const serverInfo = {
